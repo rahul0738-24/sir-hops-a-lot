@@ -1,32 +1,24 @@
-# New Game Project
-A 2D pixel-art platformer made in Godot.
+# sir hops-a-lot
+this is a 2d pixel game
 
-## About the Game
-The player has to travel through platforming levels, collect coins, avoid dangers, and fight enemies. Enemies can damage and kill the player, but the player can also defeat them.
-The game focuses on platforming, collecting coins, combat, and collecting a set amount of coins to unlocking a new level.
+# about the game
+the player who is a knight travels through the wrold, defeating enemies which are the monsters to make a name for himeself, collecting coins and when you collect a set amount the portal will take you to a new level to advance.
 
-## Features
-- 2D pixel-art platforming
-- Player movement and jumping
-- Coin collection
-- Enemy combat
-- Player death and respawning
-- Multiple platforms and obstacles
-- Different level challenges
+# features
+the games has:
+-jumping, movement, attacks
+-different monsters to slay
+-challenging parkour
+-different levels.
 
-## Controls
-- A / D - Move left and right
-- Space - Jump
-- space - jump on enemies to kill them
-## Made With
-- Godot Engine
-- GDScript
+# controlls
+- a/d keys are were left and right respectivley
+- space for jump
+- x for fireball move
 
-## How to Run
-1. Download or clone this repository.
-2. Open the project in Godot.
-3. Open project.godot.
-4. Run the project.
+the game is made on godot. gdscript
 
-## Development
-This project is a re-imagined and improved version of an earlier platformer project. I am continuing to add more gameplay, levels, challenges, and improvements as I develop it.
+you can find this game in itch.io and its a free web game so there no need to download.
+
+# devolepment
+this game is a reimagined game of a previous project i dropped. tho still not yet complete i have added a more challenging gameplay and i plan to develop it further by continuing to add more gameplay such as more levels, maybe even skills, new enemies that require different methods to defeat etc.
