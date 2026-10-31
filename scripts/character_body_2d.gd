@@ -3,13 +3,19 @@ extends CharacterBody2D
 
 const SPEED = 120.0
 const JUMP_VELOCITY = -275.0
+const FIREBALL_SCENE = preload("res://fireball.tscn")
+const FIREBALL_COOLDOWN = 10.0
 
+var can_shoot = true
 var is_hit = false
 var health = 3
 var invincible = false
 var coins = 0
 
 func _physics_process(delta: float) -> void:
+		# Handle fireball
+	if Input.is_action_just_pressed("shoot") and can_shoot and not is_hit:
+		shoot_fireball()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -87,3 +93,14 @@ func update_coin_label() -> void:
 func add_coin() -> void:
 	coins +=1
 	update_coin_label()
+
+func shoot_fireball() -> void:
+	can_shoot = false
+
+	var fireball = FIREBALL_SCENE.instantiate()
+	fireball.direction = -1 if animated_sprite.flip_h else 1
+	fireball.position = position + Vector2(fireball.direction * 16, -8)
+	get_parent().add_child(fireball)
+
+	await get_tree().create_timer(FIREBALL_COOLDOWN).timeout
+	can_shoot = true
