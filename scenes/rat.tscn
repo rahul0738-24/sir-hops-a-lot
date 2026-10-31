@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bmgxpptbm1xuj" path="res://assets/sprites/Rat/run.png" id="5_1ux2h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_evl6k"]
-size = Vector2(21.5, 4.34375)
+size = Vector2(24.75, 4.34375)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fdlk1"]
 atlas = ExtResource("2_nnna8")
@@ -288,6 +288,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjc2a"]
 size = Vector2(28.5, 10.75)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2i8y5"]
+size = Vector2(63, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qkmy7"]
+size = Vector2(17, 13)
+
 [node name="rat" type="Node2D" unique_id=1762547433]
 script = ExtResource("1_368s2")
 
@@ -295,11 +301,12 @@ script = ExtResource("1_368s2")
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Head" unique_id=353044448]
-position = Vector2(4, -18)
+position = Vector2(2, -15)
 shape = SubResource("RectangleShape2D_evl6k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1156474134]
-position = Vector2(1, -9)
+position = Vector2(1, -8)
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_368s2")
 animation = &"death animation"
 autoplay = "idle"
@@ -327,4 +334,21 @@ target_position = Vector2(0, 16)
 position = Vector2(-7, 0)
 target_position = Vector2(0, 16)
 
+[node name="DetectionArea" type="Area2D" parent="." unique_id=627642729]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=737961855]
+position = Vector2(1, -8)
+shape = SubResource("RectangleShape2D_2i8y5")
+
+[node name="AttackHitbox" type="Area2D" parent="." unique_id=903719660]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackHitbox" unique_id=473095658]
+position = Vector2(17.5, -8)
+shape = SubResource("RectangleShape2D_qkmy7")
+
+[connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="body_entered" from="Head" to="." method="_on_head_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
