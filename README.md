@@ -22,3 +22,7 @@ you can find this game in itch.io and its a free web game so there no need to do
 
 # devolepment
 this game is a reimagined game of a previous project i dropped. tho still not yet complete i have added a more challenging gameplay and i plan to develop it further by continuing to add more gameplay such as more levels, maybe even skills, new enemies that require different methods to defeat etc.
+
+#the link
+to play my game in itch.io --> https://rahul0738-24.itch.io/sir-hops-a-lot
+this is my games link for itch.io
