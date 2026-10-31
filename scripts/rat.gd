@@ -3,7 +3,7 @@ extends Node2D
 const COIN_SCENE = preload("res://scenes/coins.tscn")
 @export var hits_to_kill: int = 1
 @export var coins_dropped: int = 2
-@export var speed = 55.0
+@export var speed: float = 55.0
 @export var attack_cooldown: float = 1.0
 @export var hit_frame_start: int = 1
 @export var hit_frame_end: int = 3
@@ -52,15 +52,17 @@ func _on_animation_finished() -> void:
 
 func _ready() -> void:
 	attack_hitbox.monitoring = false
-	attack_hitbox.body_entered.connect("_on_bite_hit")
-	animated_sprite.frame_changed.connect("_on_frame_changed")
-	animated_sprite.animation_finished.connect("_on_animation_finished")
-	detection_area.body_entered.connect("_on_detection_entered")
-	detection_area.body_exited.connect("_on_body_exited")
+	attack_hitbox.body_entered.connect(_on_bite_hit)
+	animated_sprite.frame_changed.connect(_on_frame_changed)
+	animated_sprite.animation_finished.connect(_on_animation_finished)
 	animated_sprite.play("run animation")
+
+
 func _process(delta: float) -> void:
-	if attacking:
+	if dead or attacking:
+		queue_free()
 		return
+
 	if player_in_range and can_attack:
 		attack()
 		return
@@ -72,6 +74,7 @@ func _process(delta: float) -> void:
 		direction = -1
 	elif direction == -1 and not ledge_left.is_colliding():
 		direction = 1
+	animated_sprite.flip_h = direction < 0
 	position.x += direction * speed * delta
 
 
