@@ -98,7 +98,7 @@ func _on_head_body_entered(body: Node2D) -> void:
 		body.velocity.y = -250
 		_kill()
 
-func die() -> void:
+func _die() -> void:
 	if dead:
 		return
 	hits_to_kill -= 1
@@ -117,7 +117,9 @@ func _kill() -> void:
 	drop_coins()
 
 	animated_sprite.play("death animation")
-	await animated_sprite.animation_finished
+	var frames = animated_sprite.sprite_frames.get_frame_count("death animation")
+	var fps = animated_sprite.sprite_frames.get_animation_speed("death animation")
+	await get_tree().create_timer(frames / fps).timeout
 	queue_free()
 
 func drop_coins() -> void:

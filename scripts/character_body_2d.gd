@@ -62,7 +62,18 @@ func _ready() -> void:
 	update_coin_label()
 
 func update_health_label() -> void:
-	health_label.text = "Lives: " + str(health)
+	const HEART_FULL = preload("res://scenes/heart_full.png")
+	const HEART_EMPTY = preload("res://scenes/heart_empty.png")
+	var hearts = hearts_container.get_children()
+	for i in range(hearts.size()):
+		if i < health:
+			hearts[i].texture = HEART_FULL
+		else:
+			hearts[i].texture = HEART_EMPTY
+
+
+@onready var hearts_container = $CanvasLayer/HeartsContainer
+
 
 
 func take_damage() -> void:

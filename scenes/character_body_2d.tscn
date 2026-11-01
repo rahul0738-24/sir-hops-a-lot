@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dtfwvgkai6iy5" path="res://scripts/character_body_2d.gd" id="1_g2brh"]
 [ext_resource type="Texture2D" uid="uid://cwf1bm76xv78p" path="res://assets/sprites/knight.png" id="1_lj8jo"]
+[ext_resource type="Texture2D" uid="uid://c1lhilk5vsqao" path="res://scenes/heart_full.png" id="3_dn4c7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tyfdd"]
 atlas = ExtResource("1_lj8jo")
@@ -200,18 +201,30 @@ shape = SubResource("CircleShape2D_hjc2a")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=140727569]
 
-[node name="HealthLabel" type="Label" parent="CanvasLayer" unique_id=2070002458]
-anchors_preset = -1
-anchor_left = -0.002
-anchor_top = -0.025
-anchor_right = -0.002
-anchor_bottom = -0.025
-offset_left = 2.3040001
-offset_top = 16.2
-offset_right = 42.304
-offset_bottom = 39.2
-theme_override_font_sizes/font_size = 15
-text = "Lives: 3"
+[node name="HeartsContainer" type="HBoxContainer" parent="CanvasLayer" unique_id=1176878359]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Heart1" type="TextureRect" parent="CanvasLayer/HeartsContainer" unique_id=1987570894]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_dn4c7")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Heart2" type="TextureRect" parent="CanvasLayer/HeartsContainer" unique_id=670785450]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_dn4c7")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Heart3" type="TextureRect" parent="CanvasLayer/HeartsContainer" unique_id=1913466259]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_dn4c7")
+expand_mode = 1
+stretch_mode = 3
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1678884555]
 

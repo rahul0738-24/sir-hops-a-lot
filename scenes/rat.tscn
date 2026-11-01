@@ -328,11 +328,11 @@ target_position = Vector2(-13, 0)
 
 [node name="ledgeRight" type="RayCast2D" parent="." unique_id=364288955]
 position = Vector2(9, 0)
-target_position = Vector2(0, 16)
+target_position = Vector2(0, 19)
 
 [node name="ledgeLeft" type="RayCast2D" parent="." unique_id=560166794]
 position = Vector2(-7, 0)
-target_position = Vector2(0, 16)
+target_position = Vector2(0, 19)
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=627642729]
 collision_mask = 2
